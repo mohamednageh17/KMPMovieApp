@@ -1,5 +1,6 @@
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -57,35 +58,38 @@ fun App(
             },
 
         ) {
-            val loading = rememberSaveable { mutableStateOf(false) }
+            val loading = rememberSaveable { mutableStateOf<Boolean?>(true) }
 
             val movieState = rememberSaveable { mutableStateOf<MovieResponse?>(null) }
             val errorState = rememberSaveable { mutableStateOf<String?>(null) }
 
             val scope = rememberCoroutineScope()
             scope.launch() {
-                loading.value = true
                 apiClient.fetchMovies().onSuccess {
                     movieState.value = it
-                    loading.value = false
+                    loading.value = null
                 }.onError {
                     errorState.value = it.toString()
-                    loading.value = false
+                    loading.value = null
                 }
             }
 
-            if (loading.value) {
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    content = {
-                        CircularProgressIndicator(
-                            modifier = Modifier.width(64.dp),
-                        )
-                    }
-                )
-
+            loading.value?.let {
+                if (it) {
+                    Column(
+                        modifier = Modifier.fillMaxSize(),
+                        horizontalAlignment = Alignment.CenterHorizontally,
+                        verticalArrangement = Arrangement.Center,
+                        content = {
+                            CircularProgressIndicator(
+                                modifier = Modifier.width(64.dp),
+                            )
+                        }
+                    )
+                }
 
             }
+
             movieState.value?.let {
                 MovieList(it.results)
             }
