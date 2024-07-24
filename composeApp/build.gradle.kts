@@ -38,6 +38,7 @@ kotlin {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.coil.compose.v270)
         }
 
         nativeMain.dependencies {
@@ -51,11 +52,13 @@ kotlin {
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
             implementation(libs.bundles.ktor)
+            implementation(libs.coil3.coil.compose)
+            implementation(libs.coil.network.ktor)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.ktor.client.okhttp)
-
+            implementation(libs.kotlinx.coroutines.swing.z)
         }
     }
 }
@@ -95,6 +98,9 @@ android {
     dependencies {
         debugImplementation(compose.uiTooling)
     }
+}
+dependencies {
+    implementation(libs.androidx.constraintlayout)
 }
 
 compose.desktop {

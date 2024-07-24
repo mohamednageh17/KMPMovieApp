@@ -10,12 +10,20 @@ androidx-core-ktx = "1.13.1"
 androidx-espresso-core = "3.6.1"
 androidx-material = "1.12.0"
 androidx-test-junit = "1.2.1"
+coilCompose = "2.0.0-rc01"
+coilComposeVersion = "2.7.0"
+coilKtCoilCompose = "3.0.0-alpha06"
 compose-plugin = "1.6.11"
 junit = "4.13.2"
 kotlin = "2.0.0"
 ktor = "2.3.12"
 
 [libraries]
+androidx-material3 = { module = "androidx.compose.material3:material3" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coilCompose" }
+coil-compose-v270 = { module = "io.coil-kt:coil-compose", version.ref = "coilComposeVersion" }
+coil-network-ktor = { module = "io.coil-kt.coil3:coil-network-ktor", version.ref = "coilKtCoilCompose" }
+coil3-coil-compose = { module = "io.coil-kt.coil3:coil-compose", version.ref = "coilKtCoilCompose" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -27,6 +35,7 @@ androidx-material = { group = "com.google.android.material", name = "material", 
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 
+kotlinx-coroutines-swing_z = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing " }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
