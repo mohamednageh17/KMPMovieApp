@@ -24,9 +24,9 @@ import networking.API
 import networking.model.MovieModel
 
 @Composable
-fun MovieCard(item: MovieModel?, onClick: () -> Unit) {
+fun MovieCard(item: MovieModel?, onClick: (MovieModel?) -> Unit) {
     Column(
-        modifier = Modifier.clickable(onClick = onClick)
+        modifier = Modifier.clickable(onClick = {onClick.invoke(item)})
             .width(IntrinsicSize.Min)
             .clip(RoundedCornerShape(5)),
         verticalArrangement = Arrangement.Top,

@@ -54,6 +54,9 @@ kotlin {
             implementation(libs.bundles.ktor)
             implementation(libs.coil3.coil.compose)
             implementation(libs.coil.network.ktor)
+            implementation(libs.navigation.compose)
+            implementation(libs.decompose)
+            implementation(libs.decompose.jetbrains)
         }
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
@@ -99,6 +102,7 @@ android {
         debugImplementation(compose.uiTooling)
     }
 }
+
 dependencies {
     implementation(libs.androidx.constraintlayout)
 }
